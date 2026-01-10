@@ -1,0 +1,15 @@
+# Fichiers Qt Creator
+*.pro.user
+*.pro.user.*
+*.qbs.user
+
+# Build files
+build-*/
+*.o
+*.a
+*.so
+*.exe
+*.dll
+
+# Logs et fichiers temporaires
+*.log
