@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 #include <QMainWindow>
 #include "Tetromino.h"
+#include "puits.h"
 #include <QKeyEvent>
 
 namespace Ui {
@@ -16,6 +17,7 @@ public:
 private:
     Ui::MainWindow *ui;
     Tetromino *r;
+    Puits *p;
     void paintEvent(QPaintEvent* e);
     void keyPressEvent ( QKeyEvent * event );
 };

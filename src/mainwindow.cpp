@@ -8,24 +8,27 @@
 #include "S.h"
 #include "T.h"
 #include "Z.h"
+#include "puits.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow) {
     ui->setupUi(this);
+    p = new Puits();
     r = new T();
-
 }
 MainWindow::~MainWindow() {
     delete ui;
     delete r;
+    delete p;
 }
 
 void MainWindow::paintEvent(QPaintEvent* e) {
     QWidget::paintEvent(e);
     QPainter painter(this);
     r->dessiner(&painter);
+    p->dessiner(&painter);
 }
 
 void MainWindow::keyPressEvent ( QKeyEvent * event ) {
