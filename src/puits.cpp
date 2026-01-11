@@ -1,3 +1,6 @@
 #include "puits.h"
 
-Puits::Puits(): {}
+Puits::Puits()
+{
+
+}

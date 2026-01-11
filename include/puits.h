@@ -1,6 +1,6 @@
 #ifndef PUITS_H
 #define PUITS_H
-#include "ObjetGraphique.h"
+#include "objetgraphique.h"
 
 class Puits : ObjetGraphique
 {
