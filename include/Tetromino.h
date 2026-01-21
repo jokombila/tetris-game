@@ -17,7 +17,7 @@ protected:
 public:
     Tetromino(point p={0,0}, int taille=15, string c = "rose", string t = "I", int k=0);
     void dessiner(QPainter * p);
-    void deplacerDe(int dx, int dy);
+    void deplacerDe(int dx      , int dy);
     void Pivoter();
 
 };

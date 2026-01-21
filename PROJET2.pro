@@ -14,6 +14,7 @@ SOURCES += \
    src/main.cpp \
    src/mainwindow.cpp \
    src/objetgraphique.cpp \
+   src/partie.cpp \
    src/puits.cpp \
    src/tetromino.cpp \
    src/i.cpp \
@@ -33,10 +34,11 @@ HEADERS += \
     include/mainwindow.h \
     include/o.h \
     include/objetgraphique.h \
+    include/partie.h \
     include/puits.h \
     include/s.h \
     include/t.h \
-    include/z.h \
+    include/z.h
 
 
 FORMS += \

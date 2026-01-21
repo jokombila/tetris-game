@@ -10,10 +10,10 @@ class Puits : public ObjetGraphique
 protected :
     int hauteur;
     int largeur;
-    int Mat[22][10];
+    int Mat[30][18];
 
 public:
-    Puits(int h=22, int l=10);
+    Puits(int h=30, int l=18);
     void dessiner(QPainter * p);
 };
 

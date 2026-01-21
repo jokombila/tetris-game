@@ -5,7 +5,7 @@
 class T: public Tetromino
 {
 public:
-    T(point p={0,0});
+    T(point p={185,50});
 };
 
 #endif // T_H
