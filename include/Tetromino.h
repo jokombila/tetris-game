@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Tetromino : ObjetGraphique
+class Tetromino : public ObjetGraphique
 {
 protected:
     string couleur;

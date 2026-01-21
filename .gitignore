@@ -4,6 +4,7 @@
 *.qbs.user
 
 # Build files
+build/
 build-*/
 *.o
 *.a
