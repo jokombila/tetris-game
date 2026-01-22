@@ -15,12 +15,10 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow) {
     ui->setupUi(this);
-    p = new Puits();
-    r = new T();
+    p = new Partie();
 }
 MainWindow::~MainWindow() {
     delete ui;
-    delete r;
     delete p;
 }
 
@@ -28,20 +26,21 @@ void MainWindow::paintEvent(QPaintEvent* e) {
     QWidget::paintEvent(e);
     QPainter painter(this);
     p->dessiner(&painter);
-    r->dessiner(&painter);
-
 }
 
 void MainWindow::keyPressEvent ( QKeyEvent * event ) {
     switch(event->key())
     {
-    case Qt::Key_Left : r->deplacerDe(-15,0);
+    case Qt::Key_Left : p->Deplacement(-15,0);
+                        // appeler deplacer de partie et dans cette fonction il faudra
+                        // tester si collision
+                        // si collision alos redeplacer le tetromino dans l'autre sens et pas de repaint
         break;
-    case Qt::Key_Right : r->deplacerDe(15,0);
+    case Qt::Key_Right : p->Deplacement(15,0);
         break;
-    case Qt::Key_Up : r->Pivoter();
+    case Qt::Key_Up : //r->Pivoter();
         break;
-    case Qt::Key_Down : r->deplacerDe(0,15);
+    case Qt::Key_Down : p->Deplacement(0,15);
         break;
     }
     this->repaint();

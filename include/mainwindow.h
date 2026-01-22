@@ -1,8 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include <QMainWindow>
-#include "Tetromino.h"
-#include "puits.h"
+#include "partie.h"
 #include <QKeyEvent>
 
 namespace Ui {
@@ -16,8 +15,7 @@ public:
     ~MainWindow();
 private:
     Ui::MainWindow *ui;
-    Tetromino *r;
-    Puits *p;
+    Partie *p;
     void paintEvent(QPaintEvent* e);
     void keyPressEvent ( QKeyEvent * event );
 };

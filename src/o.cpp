@@ -1,6 +1,6 @@
 #include "o.h"
 
-O::O(point p):Tetromino(p, 15,"Bleu","O",0) {
+O::O(point p,point p2):Tetromino(p, p2, 15,"Bleu","O",0) {
     Mat[0][0][1] = 4;
     Mat[0][0][2]=4;
     Mat[0][1][1]=4;

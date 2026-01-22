@@ -1,6 +1,6 @@
 #include "s.h"
 
-S::S(point p):Tetromino(p, 15,"Vert","S",0) {
+S::S(point p,point p2):Tetromino(p, p2, 15,"Vert","S",0) {
     Mat[0][0][1] = 1;
     Mat[0][1][1]=1;
     Mat[0][1][2]=1;

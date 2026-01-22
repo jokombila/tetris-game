@@ -5,3 +5,13 @@ ObjetGraphique::ObjetGraphique(point p, int taille) {
     coordonnes.y = p.y;
     this->taille = taille;
 }
+
+int ObjetGraphique::getX()
+{
+    return coordonnes.x;
+}
+
+int ObjetGraphique::getY()
+{
+    return coordonnes.y;
+}

@@ -1,6 +1,6 @@
 #include "j.h"
 
-J::J(point p):Tetromino(p, 15,"Gris","J",3) {
+J::J(point p,point p2):Tetromino(p, p2, 15,"Gris","J",3) {
     Mat[0][0][2] = 7;
     Mat[0][1][2]=7;
     Mat[0][2][2]=7;

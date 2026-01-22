@@ -1,6 +1,6 @@
 #include "i.h"
 
-I::I(point p):Tetromino(p, 15,"Rouge","I",0) {
+I::I(point p,point p2):Tetromino(p, p2,15,"Rouge","I",0) {
     Mat[0][0][1] = 3;
     Mat[0][1][1]=3;
     Mat[0][2][1]=3;

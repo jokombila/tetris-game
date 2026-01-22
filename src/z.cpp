@@ -1,6 +1,6 @@
 #include "z.h"
 
-Z::Z(point p):Tetromino(p, 15,"Cyan","Z",1) {
+Z::Z(point p,point p2):Tetromino(p, p2, 15,"Cyan","Z",1) {
     Mat[0][0][2] = 2;
     Mat[0][1][1]=2;
     Mat[0][1][2]=2;

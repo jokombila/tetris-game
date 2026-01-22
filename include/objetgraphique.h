@@ -18,6 +18,8 @@ class ObjetGraphique
 
     public:
         ObjetGraphique(point p = {0,0}, int taille =15);
+        int getX();
+        int getY();
 };
 
 #endif // OBJETGRAPHIQUE_H

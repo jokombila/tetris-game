@@ -1,6 +1,6 @@
 #include "l.h"
 
-L::L(point p):Tetromino(p, 15,"Magenta","L",0) {
+L::L(point p,point p2):Tetromino(p, p2, 15,"Magenta","L",0) {
     Mat[0][0][1] = 6;
     Mat[0][1][1]=6;
     Mat[0][2][1]=6;
