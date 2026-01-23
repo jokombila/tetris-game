@@ -1,7 +1,7 @@
 #include "t.h"
 
 
-T::T(point p,point p2):Tetromino(p, p2, 15,"Orange","T",2) {
+T::T(point p,point p2):Tetromino(p, p2, 15,"Orange","T",0) {
     Mat[0][0][1] = 5;
     Mat[0][1][1]=5;
     Mat[0][1][2]=5;

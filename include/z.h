@@ -5,7 +5,7 @@
 class Z: public Tetromino
 {
 public:
-    Z(point p={0,0},point p2={0,0});
+    Z(point p={155,110},point p2={7,4});
 };
 
 #endif // Z_H

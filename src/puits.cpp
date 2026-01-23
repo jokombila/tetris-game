@@ -31,17 +31,52 @@ void Puits::dessiner(QPainter* p)
     {
         for(int j = 0; j < largeur; j++)
         {
-            if(m_Mat[i][j] == 0)
+            if (m_Mat[i][j] == 1)
+            {
+                p->fillRect(coordonnes.x+j*15,  coordonnes.y+i*15, 15, 15, QBrush(Qt::green) );
+            }
+            else if (m_Mat[i][j] == 2)
+            {
+                p->fillRect(coordonnes.x+j*15,  coordonnes.y+i*15, 15, 15, QBrush(Qt::cyan) );
+            }
+            else if (m_Mat[i][j] == 3)
+            {
+                p->fillRect(coordonnes.x+j*15,  coordonnes.y+i*15, 15, 15, QBrush(Qt::red) );
+            }
+            else if (m_Mat[i][j] == 4)
+            {
+                p->fillRect(coordonnes.x+j*15,  coordonnes.y+i*15, 15, 15, QBrush(Qt::blue) );
+            }
+            else if (m_Mat[i][j] == 5)
+            {
+                p->fillRect(coordonnes.x+j*15,  coordonnes.y+i*15, 15, 15, QBrush(QColorConstants::Svg::coral) );
+
+            }
+            else if (m_Mat[i][j] == 6)
+            {
+                p->fillRect(coordonnes.x+j*15,  coordonnes.y+i*15, 15, 15, QBrush(Qt::magenta) );
+            }
+            else if (m_Mat[i][j] == 7)
+            {
+                p->fillRect(coordonnes.x+j*15,  coordonnes.y+i*15, 15, 15, QBrush(Qt::gray) );
+            }
+            else if (m_Mat[i][j] == 0)
+            {
+                p->fillRect(coordonnes.x+j*15,  coordonnes.y+i*15, 15, 15, QBrush(Qt::white) );
+                /*p->setPen(QPen(Qt::gray,1));
+                p->drawRect(coordonnes.x+j*15,  coordonnes.y+i*15, 15, 15);*/
+            }
+
+            /*if(m_Mat[i][j] != 0)
             {
                 p->setPen(QPen(Qt::gray,1));
                 p->drawRect(coordonnes.x+j*15,  coordonnes.y+i*15, 15, 15);
             }
-
             else{
                 p->setPen(QPen(Qt::green,1));
                 p->drawRect(coordonnes.x+j*15,  coordonnes.y+i*15, 15, 15);
             }
-
+            */
         }
     }
 
@@ -65,14 +100,35 @@ int** Puits::getmat(int i,int j)
     return Mat;
 }
 
-void Puits::setMat(int*** MAT,int i,int j)
+void Puits::setMat(int** MAT,int i,int j)
 {
 
     for (int k=0;k<4;k++)
     {
         for(int l=0;l<4;l++)
         {
-            m_Mat[k+i][l+j]=*MAT[k][l];
+            if (MAT[k][l]!=0)
+                m_Mat[k+i][l+j]=MAT[k][l];
         }
     }
+}
+
+void Puits::supplignepuit(int ligne)
+{
+    bool res=true;
+    for(int i=ligne;i<ligne+4;i++)
+    {
+        for(int j=0;j<10;j++)
+        {
+            if(m_Mat[i][j]<0)
+                res=false;
+        }
+        if (res==true)
+        {
+            for(int j=0;j<10;j++)
+            {
+                if(m_Mat[i][j]<0)
+                    res=false;
+            }
+        }
 }

@@ -2,8 +2,15 @@
 #define PARTIE_H
 #include "Tetromino.h"
 #include "puits.h"
-#include "t.h"
+#include "I.h"
+#include "J.h"
+#include "L.h"
+#include "O.h"
+#include "S.h"
+#include "T.h"
+#include "Z.h"
 #include <QPainter>
+#include <cstdlib>
 
 class Partie
 {
@@ -20,6 +27,13 @@ public:
     void deletesousgrille(int*** SSG);
     bool Deplacement(int i,int j);
     void dessiner(QPainter * p);
+    bool Rotation();
+    int fixerPuit();
+    void SuppTetroCourant();
+    void CreerTetroCourant();
+    Tetromino* TirerTetro();
+    void SuppLigne(int ligne);
+
 
 
 };
