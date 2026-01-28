@@ -22,6 +22,11 @@ public:
     void deplacerDe(int dx, int dy);
     void Pivoter();
     int** getmattetro(int i,int j);
+
+    string GetCouleur();
+    string Gettype();
+
+
     int getI();
     int getJ();
 };

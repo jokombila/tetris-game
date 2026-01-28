@@ -115,20 +115,39 @@ void Puits::setMat(int** MAT,int i,int j)
 
 void Puits::supplignepuit(int ligne)
 {
+    // à expliquer dans le rapport
+    // aussi, faire un schema
     bool res=true;
-    for(int i=ligne;i<ligne+4;i++)
+    int i = ligne+3;
+    int cpt = 0;
+    while (cpt < 4)
     {
-        for(int j=0;j<10;j++)
+        res=true;
+        for(int j=4;j<14;j++)
         {
-            if(m_Mat[i][j]<0)
+            if(m_Mat[i][j]<=0)
+            {
                 res=false;
+            }
         }
         if (res==true)
         {
-            for(int j=0;j<10;j++)
+            for (int k=i;k>=5;k--)
             {
-                if(m_Mat[i][j]<0)
-                    res=false;
+                for(int j=4;j<14;j++)
+                {
+                    m_Mat[k][j]=m_Mat[k-1][j];
+                }
+            }
+            for(int j=4;j<14;j++)
+            {
+                m_Mat[4][j]=0;
             }
         }
+        else
+        {
+            i--;
+        }
+        cpt++;
+    }
 }

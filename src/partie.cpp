@@ -9,6 +9,7 @@ Partie::Partie()
 {
     m_tetro_courant = TirerTetro();
     m_tetro_suivant = TirerTetro();
+    m_tetro_suivantCopy = new Tetromino({400,100}, {50,50}, 15, m_tetro_suivant->GetCouleur(),m_tetro_suivant ->Gettype(),0 );
     m_pu = new Puits();
 
 }
@@ -114,7 +115,12 @@ void Partie::dessiner(QPainter * p)
 {
     m_pu->dessiner(p);
     if(m_tetro_courant!=nullptr)
+    {
         m_tetro_courant->dessiner(p);
+        //m_tetro_suivant->dessiner(p);
+        m_tetro_suivantCopy->dessiner(p);
+
+    }
 
 }
 
@@ -171,5 +177,5 @@ Tetromino* Partie::TirerTetro()
 
 void Partie::SuppLigne(int ligne)
 {
-    m_pu->supplignepuit(int j);
+    m_pu->supplignepuit(ligne);
 }

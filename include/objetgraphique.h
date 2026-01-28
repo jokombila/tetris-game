@@ -20,6 +20,8 @@ class ObjetGraphique
         ObjetGraphique(point p = {0,0}, int taille =15);
         int getX();
         int getY();
+        void setX(int decalage);
+        void setY(int decalage);
 };
 
 #endif // OBJETGRAPHIQUE_H

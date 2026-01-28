@@ -17,6 +17,8 @@ class Partie
 protected:
     Tetromino* m_tetro_courant;
     Tetromino* m_tetro_suivant;
+    Tetromino* m_tetro_suivantCopy;
+
     Puits* m_pu;
 public:
     Partie();

@@ -20,6 +20,16 @@ Tetromino::Tetromino(point p,  point p2, int taille,string c, string t,int k):Ob
 
 }
 
+string Tetromino :: GetCouleur()
+{
+    return couleur;
+}
+
+string Tetromino :: Gettype()
+{
+    return type;
+}
+
 
 void Tetromino::dessiner(QPainter * p) {
     int k=position;
@@ -60,6 +70,8 @@ void Tetromino::dessiner(QPainter * p) {
         }
     }
 }
+
+
 
 void Tetromino::deplacerDe(int dx, int dy) {
     coordonnes.x+=dx;

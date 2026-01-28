@@ -15,3 +15,14 @@ int ObjetGraphique::getY()
 {
     return coordonnes.y;
 }
+
+
+void ObjetGraphique::setY(int decalage)
+{
+    coordonnes.y=decalage;
+}
+
+void ObjetGraphique::setX(int decalage)
+{
+    coordonnes.x=decalage;
+}
