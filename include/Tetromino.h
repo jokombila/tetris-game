@@ -22,7 +22,8 @@ public:
     void deplacerDe(int dx, int dy);
     void Pivoter();
     int** getmattetro(int i,int j);
-
+    virtual Tetromino* clone()=0;
+    virtual ~Tetromino();
     string GetCouleur();
     string Gettype();
 

@@ -22,3 +22,8 @@ Z::Z(point p,point p2):Tetromino(p, p2, 15,"Cyan","Z",1) {
     Mat[3][2][3]=2;
 
 }
+
+Tetromino* Z:: clone()
+{
+    return new Z({400,100}, {50,50});
+}

@@ -5,7 +5,8 @@
 class J: public Tetromino
 {
 public:
-     J(point p={155,110},point p2={7,4});
+    J(point p={155,110},point p2={7,4});
+    Tetromino*  clone();
 };
 
 #endif // J_H

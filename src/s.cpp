@@ -22,3 +22,8 @@ S::S(point p,point p2):Tetromino(p, p2, 15,"Vert","S",0) {
     Mat[3][2][2]=1;
 
 }
+
+Tetromino* S:: clone()
+{
+    return new S({400,100}, {50,50});
+}

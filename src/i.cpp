@@ -22,3 +22,9 @@ I::I(point p,point p2):Tetromino(p, p2,15,"Rouge","I",0) {
     Mat[3][0][0]=3;
 
 }
+
+Tetromino* I:: clone()
+{
+    return new I({400,100}, {50,50});
+}
+

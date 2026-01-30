@@ -22,3 +22,8 @@ J::J(point p,point p2):Tetromino(p, p2, 15,"Gris","J",3) {
     Mat[3][2][3]=7;
 
 }
+
+Tetromino* J:: clone()
+{
+    return new J({400,100}, {50,50});
+}

@@ -19,6 +19,9 @@ Tetromino::Tetromino(point p,  point p2, int taille,string c, string t,int k):Ob
     }
 
 }
+Tetromino::~Tetromino()
+{
+}
 
 string Tetromino :: GetCouleur()
 {

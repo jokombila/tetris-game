@@ -18,5 +18,13 @@ private:
     Partie *p;
     void paintEvent(QPaintEvent* e);
     void keyPressEvent ( QKeyEvent * event );
+    QTimer *timer;
+    int nbIntTimer;
+
+
+private slots:
+    void on_bStart_clicked();
+    void on_bStop_clicked();
+    void update();
 };
 #endif // MAINWINDOW_H

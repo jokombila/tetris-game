@@ -18,8 +18,8 @@ protected:
     Tetromino* m_tetro_courant;
     Tetromino* m_tetro_suivant;
     Tetromino* m_tetro_suivantCopy;
-
     Puits* m_pu;
+    bool partie_termine;
 public:
     Partie();
     Partie(const Partie& P);
@@ -35,6 +35,8 @@ public:
     void CreerTetroCourant();
     Tetromino* TirerTetro();
     void SuppLigne(int ligne);
+    bool getFin();
+    void setFin(bool fin);
 
 
 

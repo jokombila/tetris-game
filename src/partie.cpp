@@ -7,10 +7,12 @@ using namespace std;
 
 Partie::Partie()
 {
+    srand((unsigned int)time(0));
     m_tetro_courant = TirerTetro();
     m_tetro_suivant = TirerTetro();
-    m_tetro_suivantCopy = new Tetromino({400,100}, {50,50}, 15, m_tetro_suivant->GetCouleur(),m_tetro_suivant ->Gettype(),0 );
+    m_tetro_suivantCopy=m_tetro_suivant->clone();
     m_pu = new Puits();
+    partie_termine = false;
 
 }
 
@@ -117,8 +119,8 @@ void Partie::dessiner(QPainter * p)
     if(m_tetro_courant!=nullptr)
     {
         m_tetro_courant->dessiner(p);
-        //m_tetro_suivant->dessiner(p);
         m_tetro_suivantCopy->dessiner(p);
+        //m_tetro_suivant->dessiner(p);
 
     }
 
@@ -128,11 +130,21 @@ int Partie::fixerPuit()
 {
     int i=m_tetro_courant->getI();
     int j=m_tetro_courant->getJ();
-
     int **MatT = m_tetro_courant->getmattetro(i,j);
     m_pu->setMat(MatT,i,j);
     return i;
 }
+
+bool Partie::getFin()
+{
+    return partie_termine;
+}
+
+void Partie::setFin(bool fin)
+{
+    this->partie_termine=fin;
+}
+
 
 void Partie:: SuppTetroCourant()
 {
@@ -142,13 +154,20 @@ void Partie:: SuppTetroCourant()
 
 void Partie::CreerTetroCourant()
 {
+    delete m_tetro_courant;
     m_tetro_courant=m_tetro_suivant;
     m_tetro_suivant=TirerTetro();
+    if(collision(m_tetro_suivant->getI(),m_tetro_suivant->getJ()))
+    {
+        cout << "GAME OVER"<<endl;
+        partie_termine = true;
+    }
+    delete m_tetro_suivantCopy;
+    m_tetro_suivantCopy=m_tetro_suivant->clone();
 }
 
 Tetromino* Partie::TirerTetro()
 {
-    srand((unsigned int)time(0));
     int valeur  = rand()%7;
     switch(valeur)
     {
