@@ -17,7 +17,7 @@ public:
     void dessiner(QPainter * p);
     int** getmat(int i,int j);
     void setMat(int** MAT,int i,int j);
-    void supplignepuit(int ligne);
+    int supplignepuit(int ligne);
 };
 
 #endif // PUITS_H

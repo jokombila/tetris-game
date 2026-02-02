@@ -13,6 +13,9 @@ Partie::Partie()
     m_tetro_suivantCopy=m_tetro_suivant->clone();
     m_pu = new Puits();
     partie_termine = false;
+    m_score=0;
+    m_etatTimer=false;
+    m_level=0;
 
 }
 
@@ -23,6 +26,9 @@ Partie::Partie(const Partie& P)
     m_tetro_courant=P.m_tetro_courant;
     m_tetro_suivant=P.m_tetro_suivant;
     m_pu=P.m_pu;
+    m_score=P.m_score;
+    m_etatTimer=P.m_etatTimer;
+    m_level=P.m_level;
 }
 
 Partie::~Partie()
@@ -39,6 +45,9 @@ Partie& Partie::operator=(const Partie& P)
         m_tetro_courant=P.m_tetro_courant;
         m_tetro_suivant=P.m_tetro_suivant;
         m_pu=P.m_pu;
+        m_score=P.m_score;
+        m_etatTimer=P.m_etatTimer;
+        m_level=P.m_level;
     }
     return *this;
 }
@@ -196,5 +205,76 @@ Tetromino* Partie::TirerTetro()
 
 void Partie::SuppLigne(int ligne)
 {
-    m_pu->supplignepuit(ligne);
+    int nbrligne=m_pu->supplignepuit(ligne);
+    switch(nbrligne)
+    {
+        case 0: break;
+        case 1:
+        {
+            calculerScore(100);
+        }
+        break;
+        case 2:
+        {
+            calculerScore(300);
+        }
+        break;
+        case 3:
+        {
+            calculerScore(500);
+        }
+        break;
+        case 4:
+        {
+            calculerScore(1000);
+        }
+        break;
+    }
+    IncrementeLevel();
+}
+
+void Partie::setscore(int score)
+{
+    m_score=score;
+}
+
+
+int Partie::getscore()
+{
+    return m_score;
+}
+
+void Partie::calculerScore(int N)
+{
+    m_score=m_score+N;
+}
+
+bool Partie::getEtatTime()
+{
+    return m_etatTimer;
+}
+void Partie::setEtatTime(bool etat)
+{
+    m_etatTimer=etat;
+}
+
+void Partie::setlevel(int level)
+{
+    m_level=level;
+}
+
+int Partie::getlevel()
+{
+    return m_level;
+}
+
+void Partie::IncrementeLevel()
+{
+    if(m_score<=5000)
+        m_level=1;
+    else if(m_score>5000 && m_score<=15000)
+        m_level=2;
+    else
+        m_level=3;
+
 }

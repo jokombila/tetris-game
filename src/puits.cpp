@@ -113,13 +113,14 @@ void Puits::setMat(int** MAT,int i,int j)
     }
 }
 
-void Puits::supplignepuit(int ligne)
+int Puits::supplignepuit(int ligne)
 {
     // à expliquer dans le rapport
     // aussi, faire un schema
     bool res=true;
     int i = ligne+3;
     int cpt = 0;
+    int compteurligne=0;
     while (cpt < 4)
     {
         res=true;
@@ -132,6 +133,7 @@ void Puits::supplignepuit(int ligne)
         }
         if (res==true)
         {
+            compteurligne++;
             for (int k=i;k>=5;k--)
             {
                 for(int j=4;j<14;j++)
@@ -150,4 +152,5 @@ void Puits::supplignepuit(int ligne)
         }
         cpt++;
     }
+    return compteurligne;
 }

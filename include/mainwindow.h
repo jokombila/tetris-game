@@ -3,6 +3,9 @@
 #include <QMainWindow>
 #include "partie.h"
 #include <QKeyEvent>
+#include <QTimer>
+#include <iostream>
+using namespace std;
 
 namespace Ui {
 class MainWindow;
@@ -23,8 +26,9 @@ private:
 
 
 private slots:
-    void on_bStart_clicked();
-    void on_bStop_clicked();
     void update();
+    void on_BoutonDemarrer_clicked();
+    void on_BoutonRestart_clicked();
+    void on_BoutonPause_clicked();
 };
 #endif // MAINWINDOW_H
