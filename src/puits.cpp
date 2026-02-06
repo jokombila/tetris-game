@@ -63,8 +63,8 @@ void Puits::dessiner(QPainter* p)
             else if (m_Mat[i][j] == 0)
             {
                 p->fillRect(coordonnes.x+j*15,  coordonnes.y+i*15, 15, 15, QBrush(Qt::white) );
-                /*p->setPen(QPen(Qt::gray,1));
-                p->drawRect(coordonnes.x+j*15,  coordonnes.y+i*15, 15, 15);*/
+                //p->setPen(QPen(Qt::gray,1));
+                //p->drawRect(coordonnes.x+j*15,  coordonnes.y+i*15, 15, 15);
             }
 
             /*if(m_Mat[i][j] != 0)

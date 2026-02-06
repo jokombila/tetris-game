@@ -62,4 +62,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    Fond_TETRIS.qrc
+    Fond_TETRIS.qrc \
+    Futuristes.qrc \
+    Girly.qrc

@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QTime>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -50,7 +51,12 @@ void MainWindow::drawGlowRect(QPainter* painter, QRectF rect, QColor fillColor, 
 void MainWindow::paintEvent(QPaintEvent* e) {
     QWidget::paintEvent(e);
     QPainter painter(this);
+
     painter.drawPixmap(0,25,700,600,QPixmap(":/images/fond_tetris.png"));
+    if((p->getscore()>=200) &&(p->getscore()<400) )
+        painter.drawPixmap(0,25,700,600,QPixmap(":/Images/Girly.png"));
+    else if((p->getscore()>=400) &&(p->getscore()<600))
+        painter.drawPixmap(0,25,700,600,QPixmap(":/images/Futuriste.png"));
 
     // carre fond bleu avec neon autour
     painter.setRenderHint(QPainter::Antialiasing, true);
@@ -118,9 +124,22 @@ void MainWindow::paintEvent(QPaintEvent* e) {
 
     if (p->getFin())
     {
-        painter.setPen( QPen(Qt::red, 1) );
-        painter.setFont(QFont("Arial",50));
-        painter.drawText(50,250,QString("Game Over !"));
+        QString text = "GAME OVER!";
+        QFont font("Orbitron", 60, QFont::Bold);  // police arcade
+        painter.setFont(font);
+
+        QRect rect = this->rect();  // centre automatiquement
+
+        // Ombre pour relief
+        painter.setPen(QPen(Qt::black));
+        painter.drawText(rect.translated(4, 4), Qt::AlignCenter, text); // texte décalé pour ombre
+
+        // Texte principal avec dégradé rouge → rose
+        QLinearGradient gradient(0, 0, 0, rect.height());
+        gradient.setColorAt(0, QColor(255, 50, 50));
+        gradient.setColorAt(1, QColor(255, 150, 150));
+        painter.setPen(QPen(QBrush(gradient), 1));
+        painter.drawText(rect, Qt::AlignCenter, text);
         timer->stop();
         p->setEtatTime(0);
     }
@@ -259,4 +278,6 @@ void MainWindow::on_ongletThemes_triggered()
 {
     fenetreThemes->show();
 }
+
+
 
