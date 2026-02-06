@@ -1,14 +1,15 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include <QMainWindow>
+#include <QPainterPath>
 #include "partie.h"
 #include <QKeyEvent>
 #include <QTimer>
 #include <iostream>
-#include "../dialogregles.h"
-#include "../dialogcommandes.h"
-#include "../dialogniveaux.h"
-#include "../dialogthemes.h"
+#include "dialogregles.h"
+#include "dialogcommandes.h"
+#include "dialogniveaux.h"
+#include "dialogthemes.h"
 using namespace std;
 
 namespace Ui {
@@ -20,9 +21,11 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
 private:
     Ui::MainWindow *ui;
     Partie *p;
+    void drawGlowRect(QPainter* painter, QRectF rect, QColor fillColor, QColor glowColor);
     void paintEvent(QPaintEvent* e);
     void keyPressEvent ( QKeyEvent * event );
     QTimer *timer;

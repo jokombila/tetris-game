@@ -29,19 +29,93 @@ MainWindow::~MainWindow() {
     delete fenetreThemes;
 }
 
+
+void MainWindow::drawGlowRect(QPainter* painter, QRectF rect, QColor fillColor, QColor glowColor)
+{
+    // Glow blanc plus visible
+    int widths[] = {12, 8, 3};  // Plus large
+    int alphas[] = {60, 120, 255};  // Plus opaque
+    for(int i = 0; i < 3; i++) {
+        glowColor.setAlpha(alphas[i]);
+        painter->setPen(QPen(glowColor, widths[i]));
+        painter->setBrush(Qt::NoBrush);
+        painter->drawRoundedRect(rect, 10, 10);
+    }
+
+    painter->setPen(Qt::NoPen);
+    painter->setBrush(fillColor);
+    painter->drawRoundedRect(rect, 10, 10);
+}
+
 void MainWindow::paintEvent(QPaintEvent* e) {
     QWidget::paintEvent(e);
     QPainter painter(this);
     painter.drawPixmap(0,25,700,600,QPixmap(":/images/fond_tetris.png"));
-    painter.fillRect(42,80,451,460, QBrush(Qt::black));
-    painter.fillRect(320,110,100,100, QBrush(Qt::white));
-    painter.setPen( QPen(Qt::red, 1) );
-    painter.setFont(QFont("BankGothic Lt BT",14,QFont::Bold));
-    painter.drawText(345,125,QString("NEXT"));
-    painter.fillRect(320,259,100,50, QBrush(Qt::white));
-    painter.fillRect(320,324,100,50, QBrush(Qt::white));
-    painter.fillRect(320,389,100,50, QBrush(Qt::white));
+
+    // carre fond bleu avec neon autour
+    painter.setRenderHint(QPainter::Antialiasing, true);
+    QRectF rect(42, 80, 451, 460);
+    int radius = 20;
+
+    // Fond
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(QColor(25, 40, 55));
+    painter.drawRoundedRect(rect, radius, radius);
+
+    // Glow lumineux en 3 passes
+    QColor glow(0, 200, 255);
+    int widths[] = {10, 6, 2};
+    int alphas[] = {40, 80, 255};
+    for(int i = 0; i < 3; i++) {
+        glow.setAlpha(alphas[i]);
+        painter.setPen(QPen(glow, widths[i]));
+        painter.setBrush(Qt::NoBrush);
+        painter.drawRoundedRect(rect, radius, radius);
+    }
+
+    // Glow BLANC par-dessus le glow bleu (effet mixte)
+    QColor glowBlanc(255, 255, 255);
+    int widthsBlanc[] = {8, 5, 2};
+    int alphasBlanc[] = {30, 60, 150};
+    for(int i = 0; i < 3; i++) {
+        glowBlanc.setAlpha(alphasBlanc[i]);
+        painter.setPen(QPen(glowBlanc, widthsBlanc[i]));
+        painter.setBrush(Qt::NoBrush);
+        painter.drawRoundedRect(rect, radius, radius);
+    }
+
+    // Image TETRIS en haut du carré
+    QPixmap tetrisLogo(":/images/tetris_logo.png");
+    int logoWidth = rect.width();
+    int logoHeight = 80;
+    QPixmap scaledLogo = tetrisLogo.scaled(logoWidth, logoHeight, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    int logoX = rect.x();
+    int logoY = 23;
+    painter.drawPixmap(logoX, logoY, scaledLogo);
+
+    // Rectangle NEXT avec glow blanc
+    drawGlowRect(&painter, QRectF(320, 110, 100, 100), Qt::white, QColor(255, 255, 255));
+
+    // Texte NEXT centré
+    painter.setPen(QPen(Qt::red, 1));
+    painter.setFont(QFont("Press Start 2P",14,QFont::Bold));
+    QRectF rectNextLabel(320, 109, 100, 20);
+    painter.drawText(rectNextLabel, Qt::AlignCenter, QString("NEXT"));
+
+    // Les 3 carres avec glow
+    drawGlowRect(&painter, QRectF(320, 259, 100, 50), QColor(255, 255, 255), QColor(255, 255, 255));  // Font blanc et Glow blanc
+    drawGlowRect(&painter, QRectF(320, 324, 100, 50), QColor(255, 255, 255), QColor(255, 255, 255));  // Font blanc et Glow blanc
+    drawGlowRect(&painter, QRectF(320, 389, 100, 50), QColor(255, 255, 255), QColor(255, 255, 255)); // Font blanc et Glow blancs
+
+    // Labels centrés (SCORE, LEVEL, TIMER)
+    painter.setPen(QPen(Qt::red, 1));
+    painter.setFont(QFont("Press Start 2P",14,QFont::Bold));
+    painter.drawText(QRectF(320, 259, 100, 20), Qt::AlignCenter, QString("SCORE"));
+    painter.drawText(QRectF(320, 324, 100, 20), Qt::AlignCenter, QString("LEVEL"));
+    painter.drawText(QRectF(320, 389, 100, 20), Qt::AlignCenter, QString("TIMER"));
+
     p->dessiner(&painter);
+
     if (p->getFin())
     {
         painter.setPen( QPen(Qt::red, 1) );
@@ -50,11 +124,20 @@ void MainWindow::paintEvent(QPaintEvent* e) {
         timer->stop();
         p->setEtatTime(0);
     }
-    painter.drawText(360,430,QString(QString::number(nbIntTimer)));
-    painter.drawText(360,300,QString(QString::number(p->getscore())));
-    painter.drawText(360,365,QString(QString::number(p->getlevel())));
-}
 
+    // Chiffres centrés en dessous des labels
+    painter.setPen(QColor(25, 40, 55));
+    painter.setFont(QFont("Courier New",20,QFont::Bold));
+
+    QRectF rectScoreValue(320, 279, 100, 30);
+    painter.drawText(rectScoreValue, Qt::AlignCenter, QString::number(p->getscore()));
+
+    QRectF rectLevelValue(320, 344, 100, 30);
+    painter.drawText(rectLevelValue, Qt::AlignCenter, QString::number(p->getlevel()));
+
+    QRectF rectTimerValue(320, 409, 100, 30);
+    painter.drawText(rectTimerValue, Qt::AlignCenter, QString::number(nbIntTimer));
+}
 
 void MainWindow::update() {
     if (p->getlevel()==2)

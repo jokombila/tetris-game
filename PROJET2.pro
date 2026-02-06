@@ -11,10 +11,10 @@ CONFIG += c++17
 INCLUDEPATH += include
 
 SOURCES += \
-   dialogcommandes.cpp \
-   dialogniveaux.cpp \
-   dialogregles.cpp \
-   dialogthemes.cpp \
+   src/dialogcommandes.cpp \
+   src/dialogniveaux.cpp \
+   src/dialogregles.cpp \
+   src/dialogthemes.cpp \
    src/main.cpp \
    src/mainwindow.cpp \
    src/objetgraphique.cpp \
@@ -31,11 +31,11 @@ SOURCES += \
 
 
 HEADERS += \
-    dialogcommandes.h \
-    dialogniveaux.h \
-    dialogregles.h \
-    dialogthemes.h \
     include/Tetromino.h \
+    include/dialogcommandes.h \
+    include/dialogniveaux.h \
+    include/dialogregles.h \
+    include/dialogthemes.h \
     include/i.h \
     include/j.h \
     include/l.h \
@@ -50,10 +50,10 @@ HEADERS += \
 
 
 FORMS += \
-    dialogcommandes.ui \
-    dialogniveaux.ui \
-    dialogregles.ui \
-    dialogthemes.ui \
+    ui/dialogcommandes.ui \
+    ui/dialogniveaux.ui \
+    ui/dialogregles.ui \
+    ui/dialogthemes.ui \
     ui/mainwindow.ui
 
 # Default rules for deployment.
