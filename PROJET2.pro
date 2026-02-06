@@ -11,6 +11,10 @@ CONFIG += c++17
 INCLUDEPATH += include
 
 SOURCES += \
+   dialogcommandes.cpp \
+   dialogniveaux.cpp \
+   dialogregles.cpp \
+   dialogthemes.cpp \
    src/main.cpp \
    src/mainwindow.cpp \
    src/objetgraphique.cpp \
@@ -27,6 +31,10 @@ SOURCES += \
 
 
 HEADERS += \
+    dialogcommandes.h \
+    dialogniveaux.h \
+    dialogregles.h \
+    dialogthemes.h \
     include/Tetromino.h \
     include/i.h \
     include/j.h \
@@ -42,9 +50,16 @@ HEADERS += \
 
 
 FORMS += \
+    dialogcommandes.ui \
+    dialogniveaux.ui \
+    dialogregles.ui \
+    dialogthemes.ui \
     ui/mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Fond_TETRIS.qrc

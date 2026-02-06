@@ -25,5 +25,5 @@ O::O(point p,point p2):Tetromino(p, p2, 15,"Bleu","O",0) {
 
 Tetromino* O:: clone()
 {
-    return new O({400,100}, {50,50});
+    return new O({340,140}, {50,50});
 }

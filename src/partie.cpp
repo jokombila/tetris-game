@@ -226,7 +226,7 @@ void Partie::SuppLigne(int ligne)
         break;
         case 4:
         {
-            calculerScore(1000);
+            calculerScore(800);
         }
         break;
     }

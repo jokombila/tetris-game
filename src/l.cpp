@@ -25,5 +25,5 @@ L::L(point p,point p2):Tetromino(p, p2, 15,"Magenta","L",0) {
 
 Tetromino* L:: clone()
 {
-    return new L({400,100}, {50,50});
+    return new L({340,130}, {50,50});
 }

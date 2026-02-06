@@ -5,6 +5,10 @@
 #include <QKeyEvent>
 #include <QTimer>
 #include <iostream>
+#include "../dialogregles.h"
+#include "../dialogcommandes.h"
+#include "../dialogniveaux.h"
+#include "../dialogthemes.h"
 using namespace std;
 
 namespace Ui {
@@ -23,6 +27,10 @@ private:
     void keyPressEvent ( QKeyEvent * event );
     QTimer *timer;
     int nbIntTimer;
+    DialogRegles *fenetreRegles;
+    DialogCommandes *fenetreCommandes;
+    DialogNiveaux *fenetreNiveaux;
+    DialogThemes *fenetreThemes;
 
 
 private slots:
@@ -30,5 +38,9 @@ private slots:
     void on_BoutonDemarrer_clicked();
     void on_BoutonRestart_clicked();
     void on_BoutonPause_clicked();
+    void on_Regles_Triggered();
+    void on_Commandes_Triggered();
+    void on_ongletNiveaux_triggered();
+    void on_ongletThemes_triggered();
 };
 #endif // MAINWINDOW_H

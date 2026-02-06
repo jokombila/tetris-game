@@ -9,17 +9,38 @@ MainWindow::MainWindow(QWidget *parent) :
     p->setscore(0);
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+    connect(ui->ongletRegles, SIGNAL(triggered()),this, SLOT(on_Regles_Triggered()));
+    connect(ui->ongletCommandes, SIGNAL(triggered()),this, SLOT(on_Commandes_Triggered()));
+    connect(ui->ongletNiveaux, SIGNAL(triggered()),this, SLOT(on_ongletNiveaux_triggered()));
+    connect(ui->ongletThemes, SIGNAL(triggered()),this, SLOT(on_ongletThemes_triggered()));
     nbIntTimer = 0;
+    fenetreRegles = new DialogRegles (this);
+    fenetreCommandes = new DialogCommandes(this);
+    fenetreNiveaux = new DialogNiveaux(this);
+    fenetreThemes = new DialogThemes(this);
 }
 MainWindow::~MainWindow() {
     delete ui;
     delete p;
     delete timer;
+    delete fenetreRegles;
+    delete fenetreCommandes;
+    delete fenetreNiveaux;
+    delete fenetreThemes;
 }
 
 void MainWindow::paintEvent(QPaintEvent* e) {
     QWidget::paintEvent(e);
     QPainter painter(this);
+    painter.drawPixmap(0,25,700,600,QPixmap(":/images/fond_tetris.png"));
+    painter.fillRect(42,80,451,460, QBrush(Qt::black));
+    painter.fillRect(320,110,100,100, QBrush(Qt::white));
+    painter.setPen( QPen(Qt::red, 1) );
+    painter.setFont(QFont("BankGothic Lt BT",14,QFont::Bold));
+    painter.drawText(345,125,QString("NEXT"));
+    painter.fillRect(320,259,100,50, QBrush(Qt::white));
+    painter.fillRect(320,324,100,50, QBrush(Qt::white));
+    painter.fillRect(320,389,100,50, QBrush(Qt::white));
     p->dessiner(&painter);
     if (p->getFin())
     {
@@ -29,9 +50,9 @@ void MainWindow::paintEvent(QPaintEvent* e) {
         timer->stop();
         p->setEtatTime(0);
     }
-    painter.drawText(50,250,QString(QString::number(nbIntTimer)));
-    painter.drawText(5,20,QString(QString::number(p->getscore())));
-    painter.drawText(100,20,QString(QString::number(p->getlevel())));
+    painter.drawText(360,430,QString(QString::number(nbIntTimer)));
+    painter.drawText(360,300,QString(QString::number(p->getscore())));
+    painter.drawText(360,365,QString(QString::number(p->getlevel())));
 }
 
 
@@ -132,5 +153,27 @@ void MainWindow::on_BoutonPause_clicked()
         }
         p->setEtatTime(1);
     }
+}
+
+
+void MainWindow::on_Regles_Triggered()
+{
+    fenetreRegles->show();
+}
+
+void MainWindow::on_Commandes_Triggered()
+{
+    fenetreCommandes->show();
+}
+
+void MainWindow::on_ongletNiveaux_triggered()
+{
+    fenetreNiveaux->show();
+}
+
+
+void MainWindow::on_ongletThemes_triggered()
+{
+    fenetreThemes->show();
 }
 

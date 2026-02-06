@@ -25,5 +25,5 @@ Z::Z(point p,point p2):Tetromino(p, p2, 15,"Cyan","Z",1) {
 
 Tetromino* Z:: clone()
 {
-    return new Z({400,100}, {50,50});
+    return new Z({340,130}, {50,50});
 }
