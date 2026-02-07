@@ -93,7 +93,6 @@ int** Puits::getmat(int i,int j)
         for(int l=0;l<4;l++)
         {
             Mat[k][l]=m_Mat[i+k][j+l];
-            cout << Mat[k][l] << " ";
         }
         cout << endl;
     }

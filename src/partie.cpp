@@ -168,7 +168,6 @@ void Partie::CreerTetroCourant()
     m_tetro_suivant=TirerTetro();
     if(collision(m_tetro_suivant->getI(),m_tetro_suivant->getJ()))
     {
-        cout << "GAME OVER"<<endl;
         partie_termine = true;
     }
     delete m_tetro_suivantCopy;

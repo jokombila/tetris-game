@@ -51,12 +51,38 @@ void MainWindow::drawGlowRect(QPainter* painter, QRectF rect, QColor fillColor, 
 void MainWindow::paintEvent(QPaintEvent* e) {
     QWidget::paintEvent(e);
     QPainter painter(this);
-
     painter.drawPixmap(0,25,700,600,QPixmap(":/images/fond_tetris.png"));
-    if((p->getscore()>=200) &&(p->getscore()<400) )
+    if((p->getscore()>=1000) &&(p->getscore()<2000) )
         painter.drawPixmap(0,25,700,600,QPixmap(":/Images/Girly.png"));
-    else if((p->getscore()>=400) &&(p->getscore()<600))
+    else if((p->getscore()>=2000) &&(p->getscore()<3000))
         painter.drawPixmap(0,25,700,600,QPixmap(":/images/Futuriste.png"));
+    else if((p->getscore()>=3000) &&(p->getscore()<4000))
+        painter.drawPixmap(0,25,700,600,QPixmap(":/images/Foret.png"));
+    else if((p->getscore()>=4000) &&(p->getscore()<5000))
+        painter.drawPixmap(0,25,700,600,QPixmap(":/images/bonbons.jpg"));
+    else if((p->getscore()>=5000) &&(p->getscore()<6000))
+        painter.drawPixmap(0,25,700,600,QPixmap(":/images/EnNoirEtBlanc.jpg"));
+    else if((p->getscore()>=6000) &&(p->getscore()<7000))
+        painter.drawPixmap(0,25,700,600,QPixmap(":/image/ClermontFerrand.png"));
+    else if((p->getscore()>=7000) &&(p->getscore()<8000))
+        painter.drawPixmap(0,25,700,600,QPixmap(":/image/Espace.jpg"));
+    else if((p->getscore()>=8000) &&(p->getscore()<9000))
+        painter.drawPixmap(0,25,700,600,QPixmap(":/image/Mathematiques.jpg"));
+    else if((p->getscore()>=9000) &&(p->getscore()<1000))
+        painter.drawPixmap(0,25,700,600,QPixmap(":/image/musique.jpg"));
+    else if((p->getscore()>=1000) &&(p->getscore()<1100))
+        painter.drawPixmap(0,25,700,600,QPixmap(":/image/rainbow.jpg"));
+    else if((p->getscore()>=1100) &&(p->getscore()<1200))
+        painter.drawPixmap(0,25,900,600,QPixmap(":/image/zen.jpg"));
+    else if((p->getscore()>=1200) &&(p->getscore()<1300))
+        painter.drawPixmap(0,25,900,600,QPixmap(":/image/fleurs.jpg"));
+    else if((p->getscore()>=1300) &&(p->getscore()<1400))
+        painter.drawPixmap(0,25,900,600,QPixmap(":/image/lecture.jpg"));
+    else if((p->getscore()>=1400) &&(p->getscore()<1500))
+        painter.drawPixmap(0,25,900,600,QPixmap(":/image/amour.jpg"));
+    else if ((p->getscore()>=1500))
+        painter.drawPixmap(0,25,900,600,QPixmap(":/image/Etoile.jpg"));
+
 
     // carre fond bleu avec neon autour
     painter.setRenderHint(QPainter::Antialiasing, true);

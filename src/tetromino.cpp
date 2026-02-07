@@ -106,10 +106,8 @@ int** Tetromino::getmattetro(int i,int j)
         for(int l=0;l<4;l++)
         {
             Mat_tetro[k][l]=Mat[position][k][l];
-            cout << Mat_tetro[k][l] << " ";
 
         }
-        cout << endl;
     }
     return Mat_tetro;
 }

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>zen.jpg</file>
+    </qresource>
+</RCC>
