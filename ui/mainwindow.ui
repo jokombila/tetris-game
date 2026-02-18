@@ -95,6 +95,7 @@ QPushButton:pressed {
     </property>
     <property name="font">
      <font>
+      <family>Segoe UI</family>
       <pointsize>7</pointsize>
       <bold>true</bold>
      </font>
@@ -215,7 +216,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>666</width>
-     <height>22</height>
+     <height>17</height>
     </rect>
    </property>
    <widget class="QMenu" name="Apropos">
