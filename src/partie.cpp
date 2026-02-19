@@ -199,6 +199,8 @@ Tetromino* Partie::TirerTetro()
 
         case 6: return new Z();
             break;
+
+        default: return nullptr;
     }
 }
 
