@@ -62,22 +62,22 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    ClermontFerrand.qrc \
-    EnNoirEtBlanc.qrc \
-    Espace.qrc \
-    Etoile.qrc \
-    Fond_TETRIS.qrc \
-    Foret.qrc \
-    Futuristes.qrc \
-    Girly.qrc \
-    Mathematiques.qrc \
-    Paris.qrc \
-    amour.qrc \
-    bonbons.qrc \
-    fleurs.qrc \
-    lecture.qrc \
-    musique.qrc \
-    rainbow.qrc \
-    zen.qrc
+    ressources/ClermontFerrand.qrc \
+    ressources/EnNoirEtBlanc.qrc \
+    ressources/Espace.qrc \
+    ressources/Etoile.qrc \
+    ressources/Fond_TETRIS.qrc \
+    ressources/Foret.qrc \
+    ressources/Futuristes.qrc \
+    ressources/Girly.qrc \
+    ressources/Mathematiques.qrc \
+    ressources/Paris.qrc \
+    ressources/amour.qrc \
+    ressources/bonbons.qrc \
+    ressources/fleurs.qrc \
+    ressources/lecture.qrc \
+    ressources/musique.qrc \
+    ressources/rainbow.qrc \
+    ressources/zen.qrc
 
 DISTFILES +=

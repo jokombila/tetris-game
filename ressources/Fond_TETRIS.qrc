@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/fond_tetris.png</file>
+        <file>images/tetris_logo.png</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file>../fonts/PressStart2P-Regular.ttf</file>
+    </qresource>
+</RCC>

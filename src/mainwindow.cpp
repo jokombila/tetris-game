@@ -51,37 +51,37 @@ void MainWindow::drawGlowRect(QPainter* painter, QRectF rect, QColor fillColor, 
 void MainWindow::paintEvent(QPaintEvent* e) {
     QWidget::paintEvent(e);
     QPainter painter(this);
-    painter.drawPixmap(0,25,700,600,QPixmap(":/images/fond_tetris.png"));
+    painter.drawPixmap(0,25,700,600,QPixmap(":/images/images/fond_tetris.png"));
     if((p->getscore()>=1000) &&(p->getscore()<2000) )
-        painter.drawPixmap(0,25,700,600,QPixmap(":/Images/Girly.png"));
+        painter.drawPixmap(0,25,700,600,QPixmap(":/images/images/images/Girly.png"));
     else if((p->getscore()>=2000) &&(p->getscore()<3000))
-        painter.drawPixmap(0,25,700,600,QPixmap(":/images/Futuriste.png"));
+        painter.drawPixmap(0,25,700,600,QPixmap(":/images/images/Futuriste.png"));
     else if((p->getscore()>=3000) &&(p->getscore()<4000))
-        painter.drawPixmap(0,25,700,600,QPixmap(":/images/Foret.png"));
+        painter.drawPixmap(0,25,700,600,QPixmap(":/images/images/Foret.png"));
     else if((p->getscore()>=4000) &&(p->getscore()<5000))
-        painter.drawPixmap(0,25,700,600,QPixmap(":/images/bonbons.jpg"));
+        painter.drawPixmap(0,25,700,600,QPixmap(":/images/images/bonbons.jpg"));
     else if((p->getscore()>=5000) &&(p->getscore()<6000))
-        painter.drawPixmap(0,25,700,600,QPixmap(":/images/EnNoirEtBlanc.jpg"));
+        painter.drawPixmap(0,25,700,600,QPixmap(":/images/images/EnNoirEtBlanc.jpg"));
     else if((p->getscore()>=6000) &&(p->getscore()<7000))
-        painter.drawPixmap(0,25,700,600,QPixmap(":/image/ClermontFerrand.png"));
+        painter.drawPixmap(0,25,700,600,QPixmap(":/images/images/ClermontFerrand.png"));
     else if((p->getscore()>=7000) &&(p->getscore()<8000))
-        painter.drawPixmap(0,25,700,600,QPixmap(":/image/Espace.jpg"));
+        painter.drawPixmap(0,25,700,600,QPixmap(":/images/images/Espace.jpg"));
     else if((p->getscore()>=8000) &&(p->getscore()<9000))
-        painter.drawPixmap(0,25,700,600,QPixmap(":/image/Mathematiques.jpg"));
+        painter.drawPixmap(0,25,700,600,QPixmap(":/images/images/Mathematiques.jpg"));
     else if((p->getscore()>=9000) &&(p->getscore()<1000))
-        painter.drawPixmap(0,25,700,600,QPixmap(":/image/musique.jpg"));
+        painter.drawPixmap(0,25,700,600,QPixmap(":/images/images/musique.jpg"));
     else if((p->getscore()>=1000) &&(p->getscore()<1100))
-        painter.drawPixmap(0,25,700,600,QPixmap(":/image/rainbow.jpg"));
+        painter.drawPixmap(0,25,700,600,QPixmap(":/images/images/rainbow.jpg"));
     else if((p->getscore()>=1100) &&(p->getscore()<1200))
-        painter.drawPixmap(0,25,900,600,QPixmap(":/image/zen.jpg"));
+        painter.drawPixmap(0,25,900,600,QPixmap(":/images/images/zen.jpg"));
     else if((p->getscore()>=1200) &&(p->getscore()<1300))
-        painter.drawPixmap(0,25,900,600,QPixmap(":/image/fleurs.jpg"));
+        painter.drawPixmap(0,25,900,600,QPixmap(":/images/images/fleurs.jpg"));
     else if((p->getscore()>=1300) &&(p->getscore()<1400))
-        painter.drawPixmap(0,25,900,600,QPixmap(":/image/lecture.jpg"));
+        painter.drawPixmap(0,25,900,600,QPixmap(":/images/images/lecture.jpg"));
     else if((p->getscore()>=1400) &&(p->getscore()<1500))
-        painter.drawPixmap(0,25,900,600,QPixmap(":/image/amour.jpg"));
+        painter.drawPixmap(0,25,900,600,QPixmap(":/images/images/amour.jpg"));
     else if ((p->getscore()>=1500))
-        painter.drawPixmap(0,25,900,600,QPixmap(":/image/Etoile.jpg"));
+        painter.drawPixmap(0,25,900,600,QPixmap(":/images/images/Etoile.jpg"));
 
 
     // carre fond bleu avec neon autour
@@ -117,7 +117,7 @@ void MainWindow::paintEvent(QPaintEvent* e) {
     }
 
     // Image TETRIS en haut du carré
-    QPixmap tetrisLogo(":/images/tetris_logo.png");
+    QPixmap tetrisLogo(":/images/images/tetris_logo.png");
     int logoWidth = rect.width();
     int logoHeight = 80;
     QPixmap scaledLogo = tetrisLogo.scaled(logoWidth, logoHeight, Qt::KeepAspectRatio, Qt::SmoothTransformation);

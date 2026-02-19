@@ -1,5 +1,5 @@
 <RCC>
     <qresource prefix="/images">
-        <file>Futuriste.png</file>
+        <file>images/EnNoirEtBlanc.jpg</file>
     </qresource>
 </RCC>

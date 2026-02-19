@@ -2,13 +2,13 @@
 #define PARTIE_H
 #include "Tetromino.h"
 #include "puits.h"
-#include "I.h"
-#include "J.h"
-#include "L.h"
-#include "O.h"
-#include "S.h"
-#include "T.h"
-#include "Z.h"
+#include "i.h"
+#include "j.h"
+#include "l.h"
+#include "o.h"
+#include "s.h"
+#include "t.h"
+#include "z.h"
 #include <QPainter>
 #include <cstdlib>
 
