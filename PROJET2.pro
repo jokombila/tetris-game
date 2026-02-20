@@ -71,7 +71,6 @@ RESOURCES += \
     ressources/Futuristes.qrc \
     ressources/Girly.qrc \
     ressources/Mathematiques.qrc \
-    ressources/Paris.qrc \
     ressources/amour.qrc \
     ressources/bonbons.qrc \
     ressources/fleurs.qrc \

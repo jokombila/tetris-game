@@ -66,7 +66,7 @@ void Partie::deletesousgrille(int*** SSG)
 bool Partie::collision(int i,int j)
 {
     bool collision=false;
-    int **MatT = m_tetro_courant->getmattetro(i,j);
+    int **MatT = m_tetro_courant->getmattetro();
     int **MatP = m_pu->getmat(i,j);
 
     int k = 0;
@@ -139,7 +139,7 @@ int Partie::fixerPuit()
 {
     int i=m_tetro_courant->getI();
     int j=m_tetro_courant->getJ();
-    int **MatT = m_tetro_courant->getmattetro(i,j);
+    int **MatT = m_tetro_courant->getmattetro();
     m_pu->setMat(MatT,i,j);
     return i;
 }

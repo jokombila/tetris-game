@@ -96,7 +96,7 @@ void Tetromino:: Pivoter()
 }
 
 
-int** Tetromino::getmattetro(int i,int j)
+int** Tetromino::getmattetro()
 {
     int** Mat_tetro=new int*[4];
 

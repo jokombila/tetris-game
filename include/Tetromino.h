@@ -21,7 +21,7 @@ public:
     void dessiner(QPainter * p);
     void deplacerDe(int dx, int dy);
     void Pivoter();
-    int** getmattetro(int i,int j);
+    int** getmattetro();
     virtual Tetromino* clone()=0;
     virtual ~Tetromino();
     string GetCouleur();
