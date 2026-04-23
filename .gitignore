@@ -1,4 +1,9 @@
-# Fichiers Qt Creator
+# Project report (kept local, not published)
+Rapport_projet_tetris*.pdf
+Rapport*.pdf
+*.docx
+
+# Qt Creator
 *.pro.user
 *.pro.user.*
 *.qbs.user
@@ -12,6 +17,19 @@ build-*/
 *.exe
 *.dll
 
-# Logs et fichiers temporaires
-*.log
+# Moc, UIC, RCC generated files
+moc_*.cpp
+moc_*.h
+ui_*.h
+qrc_*.cpp
+
+# macOS
 .DS_Store
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+
+# Logs and temp files
+*.log
